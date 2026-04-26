@@ -17,7 +17,8 @@ if errorlevel 1 goto ERROR
 echo [INFO] Using nvcc: %CUDA_NVCC%
 echo [INFO] Build dir : %BUILD_DIR%
 
-
+:::  -DCMAKE_CUDA_ARCHITECTURES=61 for GTX 1070
+::: adjust for other GPUs, e.g. 75 for 2080ti, 80 for RTX 4090, 86 for RTX 4080
 cmake -S . -B "%BUILD_DIR%" ^
   -G "Ninja" ^
   -DCMAKE_BUILD_TYPE=Release ^
